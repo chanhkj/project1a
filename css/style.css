@@ -1,0 +1,31 @@
+.h1 {
+align-content: center;
+text-align: center;
+}
+#container {
+  border: 1px solid red;
+  margin: 50px;
+
+}
+.questionTable {
+  border: 1px solid orange;
+  height: 400px;
+  margin: 10px 10px 10px 10px;
+}
+.player1 {
+  display: inline-block;
+  border: 1px solid green;
+  height: 40px;
+margin-left: 75px;
+
+  width: 40%;
+}
+
+.player2 {
+  display: inline-block;
+  border: 1px solid blue;
+margin-right: 40px;
+
+height: 40px;
+  width: 40%
+}
