@@ -23,30 +23,38 @@
   border: 1px solid black;
   height: 20px;
 }
-
-.choice1 {
+.radio {
+  align-items: baseline;
+}
+.choice {
   border: 1px solid black;
   height: 20px;
+  text-align: left;
+  /*display: inline-block;*/
 }
 
 .choice2 {
   border: 1px solid black;
   height: 20px;
+  text-align: left;
 }
 
 .choice3 {
   border: 1px solid black;
   height: 20px;
+  text-align: left;
 }
 
 .choice4 {
   border: 1px solid black;
   height: 20px;
+  text-align: left;
 }
 
 .choice5 {
   border: 1px solid black;
   height: 20px;
+  text-align: left;
 }
 
 
@@ -54,7 +62,7 @@
   border: 1px solid blue;
   display: inline-block;
 }
-.next {
+#next {
   border: 1px solid black;
   display: inline-block;
 
