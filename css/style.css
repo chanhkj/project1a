@@ -4,7 +4,8 @@
 #container {
   border: 1px solid red;
   text-align: center;
-background-image: url("../image/background.jpg");
+background-image: url("../image/kid genius.jpeg");
+background-size: cover;
   margin: 50px;
   background-repeat:no-repeat;
 }
