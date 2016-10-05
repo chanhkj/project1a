@@ -3,7 +3,7 @@ $(document).ready(function() {
   var player1score = 0
   var player2score = 0
   var clickCount = 0
-  var numberOfQuestions = 9
+  var numberOfQuestions = 8
   var questions = [{
     question: '1) What is 2*5?',
     choices: [2, 5, 10, 15, 20],
@@ -54,7 +54,7 @@ $(document).ready(function() {
       // check if correct choice or wrong choice.
     correctAnswer = questions[clickCount].correctAnswer
     if (correctAnswer === choice) {
-      alert('correct next player')
+      // alert('correct next player')
       console.log('correct ans')
         // questionsNumber = clickCount
       if (currentPlayer === 1) {
@@ -68,7 +68,7 @@ $(document).ready(function() {
       nextQuestion()
       console.log('Next question is ' + questions[clickCount].question)
     } else {
-      alert('wrong, next player')
+      // alert('wrong, next player')
       console.log('wrong ans')
       console.log('current player is ' + currentPlayer)
       switchPlayer()
@@ -85,21 +85,12 @@ $(document).ready(function() {
     // also to change the player.
   })
 
-  function endGame() {
-    if (numberOfQuestions === clickCount){
-      alert('Game Over!')
-    }
-    else {
-
-    }
-  }
-  // if (player1score > player2score) {
-  //   alert('Player 1 wins!')
-  // } else if (player2score > player1score) {
-  //   alert('Player 2 wins!')
-  // } else {
-  //   alert('Draw!')
+  // function endGame() {
+  //   if (clickCount === 10) {
+  //     alert('Game Over!')
+  //   }
   // }
+
 
   function switchPlayer() {
     if (currentPlayer === 1) {
@@ -120,19 +111,41 @@ $(document).ready(function() {
     $('.choice').eq(2).text(questions[0].choices[2])
     $('.choice').eq(3).text(questions[0].choices[3])
     $('.choice').eq(4).text(questions[0].choices[4])
+
   })
 
   $('#next').on('click', nextQuestion)
 
   function nextQuestion() {
+    console.log("number of clicks=" + clickCount);
+
     clickCount += 1
+
+    if (clickCount == 10) {
+      // alert('Game Over!')
+        document.location.reload();
+
+        if (player1score > player2score) {
+          alert('Game over! Player 1 wins!')
+        } else if (player2score > player1score) {
+          alert('Game over! Player 2 wins!')
+        } else {
+          alert('Game over! Draw!')
+        }
+
+    }
+
+
+
+    console.log("number of clicks=" + clickCount);
     $('#quiz').text(questions[clickCount].question)
     $('.choice').eq(0).text(questions[clickCount].choices[0])
     $('.choice').eq(1).text(questions[clickCount].choices[1])
     $('.choice').eq(2).text(questions[clickCount].choices[2])
     $('.choice').eq(3).text(questions[clickCount].choices[3])
     $('.choice').eq(4).text(questions[clickCount].choices[4])
-  }
+
+    }
 
   // listen to the click on quiz start
   // generate the question. start at 0
