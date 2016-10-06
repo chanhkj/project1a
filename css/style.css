@@ -55,7 +55,9 @@ button {
   display: block;
   color: #fff;
 }
-
+.choice:hover {
+  background-color: rgba(146, 191, 88, 0.5);
+}
 .box {
   height: 100px;
   margin: 10px 0 10px 0;
