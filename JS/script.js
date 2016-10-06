@@ -1,11 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  // assume player 1 starts first:
   var currentPlayer = 1
   var player1score = 0
   var player2score = 0
   var clickCount = 0
-
-  var questionsNumber = ['Qn: 1', 'Qn: 2', 'Qn: 3', 'Qn: 4', 'Qn: 5', 'Qn: 6', 'Qn: 7', 'Qn: 8', 'Qn: 9', 'Qn: 10'];
-
+  // create array for the question numbering.
+  var questionsNumber = ['Qn: 1', 'Qn: 2', 'Qn: 3', 'Qn: 4', 'Qn: 5', 'Qn: 6', 'Qn: 7', 'Qn: 8', 'Qn: 9', 'Qn: 10']
+  // create array of objects containing the questions, choices, correct answers.
   var questions = [{
     question: 'What is 2*5?',
     choices: [2, 5, 10, 15, 20],
@@ -47,8 +48,8 @@ $(document).ready(function() {
     choices: [3, 14, 5, 8, 7],
     correctAnswer: 1
   }]
-
-  function shuffle(questions) {
+  // create shuffle function to shuffle the array of questions on reload.
+  function shuffle (questions) {
     var j, x, i
     for (i = questions.length; i; i--) {
       j = Math.floor(Math.random() * i)
@@ -57,18 +58,19 @@ $(document).ready(function() {
       questions[j] = x
     }
   }
+  // check whether answers are correct or not. add score to player if player answers correctly.
 
-  $('.choice').click(function() {
+  $('.choice').click(function () {
 
     // $('div').data('choice')
     // console.log($(this).data('choice'))
     var choice = $(this).data('choice')
-      // check if correct choice or wrong choice.
+    // check if correct choice or wrong choice.
     var correctAnswer = questions[clickCount].correctAnswer
     if (correctAnswer === choice) {
       // alert('correct next player')
       console.log('correct ans')
-        // questionsNumber = clickCount
+      // questionsNumber = clickCount
       if (currentPlayer === 1) {
         player1score += 1
       } else {
@@ -77,46 +79,37 @@ $(document).ready(function() {
       console.log('current player is ' + currentPlayer)
       switchPlayer()
       console.log('next player is ' + currentPlayer)
-        // nextQuestion()
       console.log('Next question is ' + questions[clickCount].question)
+      nextQuestion()
+    } else {
+      // alert('wrong, next player')
+      console.log('wrong ans')
+      console.log('current player is ' + currentPlayer)
+      switchPlayer()
+      console.log('next player is ' + currentPlayer)
+      console.log('Next question is ' + questions[clickCount].question)
+      nextQuestion()
     }
-    // else {
-    //   // alert('wrong, next player')
-    //   console.log('wrong ans')
-    //   console.log('current player is ' + currentPlayer)
-    //   switchPlayer()
-    //   console.log('next player is ' + currentPlayer)
-    //   nextQuestion()
-    //   console.log('Next question is ' + questions[clickCount].question)
-    // }
     // player score increase by 1 if correct choice.
     console.log('Player 1 score is ' + player1score)
     $('.player1').text('Player 1 score is: ' + player1score)
     console.log('Player 2 score is ' + player2score)
     $('.player2').text('Player 2 score is: ' + player2score)
-    nextQuestion()
-
-    // also to change the player.
+  // nextQuestion()
+  // also to change the player.
   })
 
-  // function endGame() {
-  //   if (clickCount === 10) {
-  //     alert('Game Over!')
-  //   }
-  // }
-
-  function switchPlayer() {
+  // create switchPlayer function
+  function switchPlayer () {
     if (currentPlayer === 1) {
       currentPlayer = 2
     } else {
       currentPlayer = 1
     }
   }
-
-  // $('.player1')
-  // var quiz = $('#quiz')
   // Quiz div object
-  $('#start').on('click', function() {
+  // click start button to start the quiz
+  $('#start').on('click', function () {
     // alert('start working')
     $('#number').text(questionsNumber[0])
     shuffle(questions)
@@ -128,15 +121,17 @@ $(document).ready(function() {
     $('.choice').eq(4).text(questions[0].choices[4])
   })
 
-  $('#next').on('click', nextQuestion)
+  // click next button to move to the next question.
 
+  // $('#next').on('click', nextQuestion)
 
-  function nextQuestion() {
+  // create next question function to move to the next question on every click
+
+  function nextQuestion () {
     console.log('number of clicks=' + clickCount)
     clickCount += 1
-    if (clickCount >= 10) {
+    if (clickCount === 10) {
       // alert('Game Over!')
-      // document.location.reload()
       if (player1score > player2score) {
         alert('Game over! Player 1 wins!')
       } else if (player2score > player1score) {
@@ -146,8 +141,9 @@ $(document).ready(function() {
       }
     } else {
       console.log('number of clicks=' + clickCount)
+      // update the question numbering base on the click.
       $('#number').text(questionsNumber[clickCount])
-
+      // update to the next question base on the click.
       $('#quiz').text(questions[clickCount].question)
       $('.choice').eq(0).text(questions[clickCount].choices[0])
       $('.choice').eq(1).text(questions[clickCount].choices[1])
@@ -155,20 +151,18 @@ $(document).ready(function() {
       $('.choice').eq(3).text(questions[clickCount].choices[3])
       $('.choice').eq(4).text(questions[clickCount].choices[4])
     }
-
-
   }
-
-  $('#reload').on('click', function() {
-      // alert('reload')
-      document.location.reload()
-    })
-    // listen to the click on quiz start
-    // generate the question. start at 0
-    // add radio to the div
-    // radio to hold the individual choices.
-    // alert radio working.
-    // there should be another trigger for player to answer question
-    // if the question correct, add score to player 1
-    // if not, skip the question, move to player 2
+  // reload the browser once you click the restart button.
+  $('#reload').on('click', function () {
+    // alert('reload')
+    document.location.reload()
+  })
+// listen to the click on quiz start
+// generate the question. start at 0
+// add radio to the div
+// radio to hold the individual choices.
+// alert radio working.
+// there should be another trigger for player to answer question
+// if the question correct, add score to player 1
+// if not, skip the question, move to player 2
 })

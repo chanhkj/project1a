@@ -1,29 +1,25 @@
-
-
-
 #container {
   border: 1px solid red;
   text-align: center;
-background-image: url("../image/kid genius.jpeg");
-background-size: cover;
+  background-image: url("../image/kid genius.jpeg");
+  background-size: cover;
   margin: 50px;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
 }
 
 button {
-    padding: 10px 38px;
-    font-size: 14px;
-    background:none;
-    border:3px solid white !important;
-    background:rgba(0,0,0,0.5);
-    color:#Fff;
-    text-transform:uppercase;
+  padding: 10px 38px;
+  font-size: 14px;
+  background: none;
+  border: 3px solid white !important;
+  background: rgba(0, 0, 0, 0.5);
+  color: #Fff;
+  text-transform: uppercase;
 }
 
-
 #quiz {
-font-size:30px;
-color:#fff;
+  font-size: 30px;
+  color: #fff;
   height: 40px;
   width: 500px;
   margin: auto;
@@ -31,20 +27,22 @@ color:#fff;
   margin-bottom: 10px;
   text-align: center;
 }
+
 #number {
-    height: 20px;
-    margin-left: 180px;
-    margin-top: 40px;
-    font-size: 23px;
-    width: 110px;
-    display: block;
-    color: white;
-    /* margin-left: 20%; */
+  height: 20px;
+  margin-left: 180px;
+  margin-top: 40px;
+  font-size: 23px;
+  width: 110px;
+  display: block;
+  color: white;
+  /* margin-left: 20%; */
 }
+
 #container h1 {
-    color: white;
-    text-transform: uppercase;
-    font-size: 21px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 21px;
 }
 
 .choice {
@@ -55,14 +53,12 @@ color:#fff;
   margin-bottom: 10px;
   text-align: center;
   display: block;
-  color:#fff;
+  color: #fff;
 }
 
 .box {
-
   height: 100px;
   margin: 10px 0 10px 0;
-
 }
 
 #start {
@@ -70,11 +66,13 @@ color:#fff;
   display: inline-block;
   margin-top: 10px;
 }
+
 #next {
   border: 1px solid black;
   display: inline-block;
   margin-top: 10px;
 }
+
 #reload {
   border: 1px solid green;
   display: inline-block;
@@ -82,27 +80,25 @@ color:#fff;
 }
 
 .player1 {
-    display: inline-block;
-    border-top: 6px solid #fff;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    padding-top: 20px;
-    padding-left:20px;
-    padding-right:20px;
-    text-transform: uppercase;
-    height: 100px;
-
+  display: inline-block;
+  border-top: 6px solid #fff;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+  height: 100px;
 }
 
 .player2 {
   display: inline-block;
   border-top: 6px solid navy;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   padding-top: 20px;
-  padding-left:20px;
-  padding-right:20px;
+  padding-left: 20px;
+  padding-right: 20px;
   text-transform: uppercase;
   height: 100px;
-
 }
